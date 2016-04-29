@@ -19,7 +19,6 @@ public class practise_linked_list {
 			next=a[next];
 			len++;
 		}
-		//len--
 		System.out.print(len);
 	}
 
