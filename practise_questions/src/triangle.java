@@ -62,17 +62,6 @@ public class triangle {
 			}
 			
 			
-			/*for(int i=0;i<rows;i++){
-				for(int j=0;j<cols;j++){
-					System.out.print(a[i][j]);
-				}
-				System.out.println();
-			}*/
-			//System.out.println(rows);
-			//System.out.println(cols);
-			//System.out.println(row);
-			//System.out.println(col);
-			
 			for (int r = rows-1; r > 0; r--)
 	            for (int c = 0; c < cols - 1; c++)
 	                a[r - 1][c] += Math.max(a[r][c], a[r][c + 1]);
