@@ -1,0 +1,50 @@
+var xPosition;
+var yPosition;
+var i=0;
+
+
+// Set up!
+var a_canvas = document.getElementById("a");
+var context = a_canvas.getContext("2d");
+
+
+function getClickPosition(e) {
+    xPosition = e.clientX;
+    yPosition = e.clientY;
+    var coords = "X coords: " + xPosition + ", Y coords: " + yPosition;
+    document.getElementById("demo").innerHTML = coords;
+i++;
+if(i%2===0)
+	drawPoint(xPosition,yPosition);
+else
+	delPoint(xPosition,yPosition);
+
+    
+//    context.beginPath();
+//context.arc(xPosition, yPosition, 2, 0, 2*Math.PI);
+//context.closePath();
+//context.fill();
+//context.fillStyle("white");
+}
+
+function drawPoint(x,y){
+context.fillStyle = "black";    
+context.beginPath();
+context.arc(x, y, 2, 0, 2*Math.PI);
+context.closePath();
+context.fill();
+//context.fillStyle("white");
+}
+
+function delPoint(x,y){
+context.fillStyle = "white";
+context.beginPath();
+context.arc(x, y, 3, 0, 2*Math.PI);
+context.closePath();
+context.fill();
+//context.fillstyle("pink");
+}
+
+
+
+
