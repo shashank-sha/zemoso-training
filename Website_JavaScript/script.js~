@@ -1,6 +1,7 @@
 var xPosition;
 var yPosition;
-var i=0;
+var i=0,j,text="";
+var xArray=[],yArray=[];
 
 
 // Set up!
@@ -11,14 +12,25 @@ var context = a_canvas.getContext("2d");
 function getClickPosition(e) {
     xPosition = e.clientX;
     yPosition = e.clientY;
-    var coords = "X coords: " + xPosition + ", Y coords: " + yPosition;
-    document.getElementById("demo").innerHTML = coords;
-i++;
-if(i%2===0)
-	drawPoint(xPosition,yPosition);
-else
+    //var coords = "X coords: " + xPosition + ", Y coords: " + yPosition;
+    //document.getElementById("demo").innerHTML = coords;
+    
+    
+/*len=xArray.length;
+for (j = 0; j < len; j++) {
+    text += ""+ xArray[j] +" "+yArray[j]+" ";
+    
+}*/
+//text +=". ";
+//document.getElementById("demo").innerHTML = text;
+if(existingPoint(xPosition,yPosition))
 	delPoint(xPosition,yPosition);
-
+else{
+    xArray[i]=xPosition;
+    yArray[i]=yPosition;
+    i++;
+	drawPoint(xPosition,yPosition);
+}
     
 //    context.beginPath();
 //context.arc(xPosition, yPosition, 2, 0, 2*Math.PI);
@@ -34,6 +46,7 @@ context.arc(x, y, 2, 0, 2*Math.PI);
 context.closePath();
 context.fill();
 //context.fillStyle("white");
+
 }
 
 function delPoint(x,y){
@@ -43,6 +56,18 @@ context.arc(x, y, 3, 0, 2*Math.PI);
 context.closePath();
 context.fill();
 //context.fillstyle("pink");
+}
+
+function existingPoint(x,y){
+len=xArray.length;
+for (j = 0; j < len; j++) {
+    if(xArray[j]===x)
+    {
+        if(yArray[j]===y)
+            return true;
+    }
+}
+return false;
 }
 
 
