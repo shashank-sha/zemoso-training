@@ -24,7 +24,10 @@ for (j = 0; j < len; j++) {
 //text +=". ";
 //document.getElementById("demo").innerHTML = text;
 if(existingPoint(xPosition,yPosition))
+{
+	
 	delPoint(xPosition,yPosition);
+}
 else{
     xArray[i]=xPosition;
     yArray[i]=yPosition;
@@ -63,8 +66,11 @@ len=xArray.length;
 for (j = 0; j < len; j++) {
     if(xArray[j]===x)
     {
-        if(yArray[j]===y)
+        if(yArray[j]===y){
+	    delete xArray[j];
+	    delete yArray[j];
             return true;
+	}
     }
 }
 return false;

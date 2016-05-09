@@ -34,12 +34,35 @@ else{
     i++;
 	drawPoint(xPosition,yPosition);
 }
+
+
+if(xArray.length===2){
+	drawCircle();
+}
     
 //    context.beginPath();
 //context.arc(xPosition, yPosition, 2, 0, 2*Math.PI);
 //context.closePath();
 //context.fill();
 //context.fillStyle("white");
+}
+
+function drawCircle(){
+var distanceX=xArray[0]-xArray[1];
+distanceX *= distanceX;
+var distanceY=yArray[0]-yArray[1];
+distanceY *= distanceY;
+var distance =Math.sqrt(distanceX + distanceY);
+var radius = distance/2;
+var centerX=(xArray[0]+xArray[1])/2;
+var centerY=(yArray[0]+yArray[1])/2;
+context.fillStyle = "orange";    
+context.beginPath();
+context.arc(centerX, centerY, radius, 0, 2*Math.PI);
+context.closePath();
+context.fill();
+
+
 }
 
 function drawPoint(x,y){
